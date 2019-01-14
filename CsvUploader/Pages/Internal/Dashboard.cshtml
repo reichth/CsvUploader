@@ -1,0 +1,54 @@
+﻿@page
+
+
+
+@model CsvUploader.Pages.Internal.DashboardModel
+@{
+}
+
+<div class="jumbotron">
+    <p>Willkommen auf dem Dashboard "@Model.FirstName() @Model.LastName()"!</p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <table class="table" border="1">
+            <thead>
+            <tr>
+                <th>
+                    <a asp-page="Dashboard" asp-route-sortOrder="@Model.NameSort">
+                        Dateiname
+                    </a>
+                </th>
+                <th>
+                    <a asp-page="Dashboard" asp-route-sortOrder="@Model.DateSort">
+                        hochgeladen am
+                    </a>
+                </th>
+                <th>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @if (@Model.UploadedFiles.Count()==0)
+            {
+                <tr><td colspan="3">Es sind noch keine Dateien hochgeladen worden.</td></tr>
+            }
+            @foreach (var item in Model.UploadedFiles)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FileName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeStamp)
+                    </td>
+                    <td>
+                        <a asp-page="ShowFile" asp-route-fileName="@item.FullFileName">Inhalt Anzeigen</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>  

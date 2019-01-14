@@ -1,0 +1,92 @@
+﻿@page
+@model CsvUploader.Pages.Internal.ShowFileModel
+@{
+}
+<h4>@ViewBag.FeedBack</h4>
+
+<div class="row">
+    <div class="col-md-8">
+        @if (@Model.IsSupplierFile)
+        {
+            <table class="table" border="1">
+                <thead>
+                <tr>
+                    <th>
+                        <a asp-page="ShowFile" asp-route-fileName="@Model.FullFileName" asp-route-sortOrder="@Model.IdSort">
+                            Lieferantennummer
+                        </a>
+                    </th>
+                    <th>
+                        <a asp-page="ShowFile" asp-route-fileName="@Model.FullFileName" asp-route-sortOrder="@Model.NameSort">
+                            Lieferantenname
+                        </a>
+                    </th>
+                    <th>
+                        Straße
+                    </th>
+                    <th>
+                        PLZ
+                    </th>
+                    <th>
+                        Ort
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Suppliers)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SupplierId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Street)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ZipCode)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <table class="table" border="1">
+                <thead>
+                    <tr>
+                        <th>
+                            <a asp-page="ShowFile" asp-route-fileName="@Model.FullFileName" asp-route-sortOrder="@Model.IdSort">
+                                Artikelnummer
+                            </a>
+                        </th>
+                        <th>
+                            <a asp-page="ShowFile" asp-route-fileName="@Model.FullFileName" asp-route-sortOrder="@Model.NameSort">
+                                Artikelbezeichnung
+                            </a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ItemId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

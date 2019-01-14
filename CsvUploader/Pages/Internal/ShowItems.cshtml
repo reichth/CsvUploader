@@ -1,0 +1,40 @@
+﻿@page
+@model CsvUploader.Pages.Internal.ShowItemsModel
+@{
+}
+
+<h4>@ViewBag.FeedBack</h4>
+
+<div class="row">
+    <div class="col-md-8">
+        <table class="table" border="1">
+            <thead>
+            <tr>
+                <th>
+                    <a asp-page="ShowItems" asp-route-supplierId="@Model.SupplierId" asp-route-sortOrder="@Model.IdSort">
+                        Artikelnummer
+                    </a>
+                </th>
+                <th>
+                    <a asp-page="ShowItems" asp-route-supplierId="@Model.SupplierId" asp-route-sortOrder="@Model.NameSort">
+                        Artikelbezeichnung
+                    </a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

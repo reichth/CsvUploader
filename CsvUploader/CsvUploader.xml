@@ -1,0 +1,512 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CsvUploader</name>
+    </assembly>
+    <members>
+        <member name="M:CsvUploader.Controllers.AccountController.#ctor(CsvUploader.Data.ApplicationDbContext)">
+            <summary>  
+            Initializes a new instance of the <see cref="T:CsvUploader.Controllers.AccountController"/> class.  
+            </summary>  
+            <param name="dataContext">Database manager context parameter</param>  
+        </member>
+        <member name="M:CsvUploader.Controllers.AccountController.PostUser(CsvUploader.Models.UserPostModel)">
+            <summary>
+            Endpoint to create new user.
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CsvUploader.Data.ApplicationDbContext">
+            <summary>
+            The data context of this application.
+            </summary>
+        </member>
+        <member name="M:CsvUploader.Data.ApplicationDbContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:CsvUploader.Data.ApplicationDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="P:CsvUploader.Data.ApplicationDbContext.WebAppUsers">
+            <summary>
+            The set of web app user entities.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.ApplicationDbContext.Suppliers">
+            <summary>
+            The set of supplier entities.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.ApplicationDbContext.Items">
+            <summary>
+            The set of item entities.
+            </summary>
+        </member>
+        <member name="M:CsvUploader.Data.ApplicationDbContext.GetLoginDetailsForUserCredentials(System.String,System.String)">
+            <summary>
+            Delivers login details for specified user credentials.
+            </summary>
+            <param name="userName">The user name credential.</param>
+            <param name="password">The password credential.</param>
+            <returns></returns>
+        </member>
+        <member name="T:CsvUploader.Data.Item">
+            <summary>
+            Entity model for items (Artikel).
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.Item.SupplierId">
+            <summary>
+            The supplier identifier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.Item.ItemId">
+            <summary>
+            The item identifier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.Item.Name">
+            <summary>
+            The name of item.
+            </summary>
+        </member>
+        <member name="T:CsvUploader.Data.Supplier">
+            <summary>
+            The entity model for auppliers (Lieferant).
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.Supplier.SupplierId">
+            <summary>
+            The supplier identifer.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.Supplier.Name">
+            <summary>
+            The name of supplier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.Supplier.Street">
+            <summary>
+            The street of supplier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.Supplier.ZipCode">
+            <summary>
+            The zipcode of supplier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.Supplier.City">
+            <summary>
+            The city of supplier.
+            </summary>
+        </member>
+        <member name="T:CsvUploader.Data.WebAppUser">
+            <summary>
+            The additional profile data for application users.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.WebAppUser.WebAppUserId">
+            <summary>
+            The web app user id.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.WebAppUser.FirstName">
+            <summary>
+            The first name of user.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.WebAppUser.LastName">
+            <summary>
+            The last name iof user.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.WebAppUser.LoginName">
+            <summary>
+            ´The login name of user.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Data.WebAppUser.Password">
+            <summary>
+            The password of user.
+            </summary>
+        </member>
+        <member name="T:CsvUploader.Models.ItemInfoModel">
+            <summary>
+            Data model for list of suppliers.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.ItemInfoModel.ItemId">
+            <summary>
+            The item identifier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.ItemInfoModel.Name">
+            <summary>
+            The name of item.
+            </summary>
+        </member>
+        <member name="T:CsvUploader.Models.LoginViewModel">
+            <summary>  
+            Login view model class.  
+            </summary>  
+        </member>
+        <member name="P:CsvUploader.Models.LoginViewModel.Username">
+            <summary>  
+            Gets or sets to username address.  
+            </summary>  
+        </member>
+        <member name="P:CsvUploader.Models.LoginViewModel.Password">
+            <summary>  
+            Gets or sets to password address.  
+            </summary>  
+        </member>
+        <member name="T:CsvUploader.Models.SupplierInfoModel">
+            <summary>
+            Data model for list of suppliers.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.SupplierInfoModel.SupplierId">
+            <summary>
+            The supplier identifier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.SupplierInfoModel.Name">
+            <summary>
+            The name of supplier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.SupplierInfoModel.Street">
+            <summary>
+            The street of supplier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.SupplierInfoModel.ZipCode">
+            <summary>
+            The zip code of supplier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.SupplierInfoModel.City">
+            <summary>
+            The city of supplier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.SupplierInfoModel.ItemCount">
+            <summary>
+            The count of items of supplier.
+            </summary>
+        </member>
+        <member name="T:CsvUploader.Models.UploadFileModel">
+            <summary>
+            Data model for uploaded file.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.UploadFileModel.FileName">
+            <summary>
+            The supplier identifier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.UploadFileModel.TimeStamp">
+            <summary>
+            The name of supplier.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.UploadFileModel.FullFileName">
+            <summary>
+            The fullname of file in uploads folder.
+            </summary>
+        </member>
+        <member name="T:CsvUploader.Models.UserPostModel">
+            <summary>
+            The post model to create new web app user in database.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.UserPostModel.FirstName">
+            <summary>
+            The first name of user.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.UserPostModel.LastName">
+            <summary>
+            The last name of user.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.UserPostModel.LoginName">
+            <summary>
+            The login name of user.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Models.UserPostModel.Password">
+            <summary>
+            The password of user.
+            </summary>
+        </member>
+        <member name="T:CsvUploader.Pages.IndexModel">
+            <summary>  
+            Index page model class.  
+            </summary>  
+        </member>
+        <member name="M:CsvUploader.Pages.IndexModel.#ctor(CsvUploader.Data.ApplicationDbContext)">
+            <summary>  
+            Initializes a new instance of the <see cref="T:CsvUploader.Pages.IndexModel"/> class.  
+            </summary>  
+            <param name="dataContext">Database manager context parameter</param>  
+        </member>
+        <member name="P:CsvUploader.Pages.IndexModel.LoginModel">
+            <summary>  
+            Gets or sets login model property.  
+            </summary>  
+        </member>
+        <member name="M:CsvUploader.Pages.IndexModel.OnGet">
+            <summary>  
+            GET: /Index  
+            </summary>  
+            <returns>Returns - Appropriate page </returns>  
+        </member>
+        <member name="M:CsvUploader.Pages.IndexModel.OnPostLogIn">
+            <summary>  
+            POST: /Index/LogIn  
+            </summary>  
+            <returns>Returns - Appropriate page </returns>  
+        </member>
+        <member name="M:CsvUploader.Pages.IndexModel.SignInUser(System.String,System.String,System.String,System.Int32,System.Boolean)">
+            <summary>  
+            Sign In User method.  
+            </summary>
+            <param name="loginName">FirstName parameter.</param>
+            <param name="firstName">FirstName parameter.</param>
+            <param name="lastName">LastName parameter.</param>
+            <param name="userId">The user identifier.</param>
+            <param name="isPersistent">Is persistent parameter.</param>  
+            <returns>Returns - await task</returns>  
+        </member>
+        <member name="T:CsvUploader.Pages.Internal.DashboardModel">
+            <summary>  
+            Dashboard page model class.  
+            </summary>  
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.DashboardModel.#ctor(CsvUploader.Data.ApplicationDbContext)">
+            <summary>  
+            Initializes a new instance of the <see cref="T:CsvUploader.Pages.Internal.ShowSupplierModel"/> class.  
+            </summary>  
+            <param name="dataContext">Database manager context parameter</param>  
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.DashboardModel.FirstName">
+            <summary>
+            The first name of user.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.DashboardModel.LastName">
+            <summary>
+            The last name of user.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.DashboardModel.OnGet(System.String)">
+            <summary>  
+            On Get method.  
+            </summary>  
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.DashboardModel.OnPostUpload">
+            <summary>  
+            POST: /Internal/Dashboard/Upload  
+            </summary>  
+            <returns>Redirect to upload</returns>  
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.DashboardModel.OnPostShowSupplier">
+            <summary>  
+            POST: /Internal/Dashboard/Upload  
+            </summary>  
+            <returns>Redirect to show supplier</returns>  
+        </member>
+        <member name="T:CsvUploader.Pages.Internal.LogoutModel">
+            <summary>  
+            Logout page model class.  
+            </summary>  
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.LogoutModel.OnGetAsync">
+            <summary>  
+            On Get method.  
+            </summary>  
+        </member>
+        <member name="T:CsvUploader.Pages.Internal.ShowFileModel">
+            <summary>
+            The page model class for show file view.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Pages.Internal.ShowFileModel.Items">
+            <summary>
+            The queryable items of supplier. 
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Pages.Internal.ShowFileModel.FullFileName">
+            <summary>
+            The full name of uploaded file.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Pages.Internal.ShowFileModel.SupplierId">
+            <summary>
+            The supplier identifier for items.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Pages.Internal.ShowFileModel.IdSort">
+            <summary>
+            The sort parameter for identifier of item.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Pages.Internal.ShowFileModel.NameSort">
+            <summary>
+            The sort parameter for name.
+            </summary>
+        </member>
+        <member name="F:CsvUploader.Pages.Internal.ShowFileModel.IsSupplierFile">
+            <summary>
+            boolean, if specified file is supplier file.
+            </summary>
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.ShowFileModel.OnGet(System.String,System.String)">
+            <summary>
+            The Onget method.
+            </summary>
+        </member>
+        <member name="T:CsvUploader.Pages.Internal.ShowItemsModel">
+            <summary>
+            The page model for show items page.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Pages.Internal.ShowItemsModel.Items">
+            <summary>
+            The queryable items of supplier. 
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Pages.Internal.ShowItemsModel.SupplierId">
+            <summary>
+            The supplier identifier for items.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Pages.Internal.ShowItemsModel.IdSort">
+            <summary>
+            The sort parameter for identifier of item.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Pages.Internal.ShowItemsModel.NameSort">
+            <summary>
+            The sort parameter for name of item.
+            </summary>
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.ShowItemsModel.#ctor(CsvUploader.Data.ApplicationDbContext)">
+            <summary>  
+            Initializes a new instance of the <see cref="T:CsvUploader.Pages.Internal.ShowItemsModel"/> class.  
+            </summary>  
+            <param name="dataContext">Database manager context parameter</param>  
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.ShowItemsModel.OnGetAsync(System.String,System.String)">
+            <summary>  
+            On Get method.  
+            </summary>  
+        </member>
+        <member name="T:CsvUploader.Pages.Internal.ShowSupplierModel">
+            <summary>
+            The page model for show supplier page.
+            </summary>
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.ShowSupplierModel.#ctor(CsvUploader.Data.ApplicationDbContext)">
+            <summary>  
+            Initializes a new instance of the <see cref="T:CsvUploader.Pages.Internal.ShowSupplierModel"/> class.  
+            </summary>  
+            <param name="dataContext">Database manager context parameter</param>  
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.ShowSupplierModel.OnGetAsync(System.String)">
+            <summary>  
+            On Get method.  
+            </summary>  
+        </member>
+        <member name="T:CsvUploader.Pages.Internal.UploadModel">
+            <summary>
+            The page model class for upload page.
+            </summary>
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.UploadModel.#ctor(CsvUploader.Data.ApplicationDbContext)">
+            <summary>  
+            Initializes a new instance of the <see cref="T:CsvUploader.Pages.Internal.UploadModel"/> class.  
+            </summary>  
+            <param name="dataContext">Database manager context parameter</param>  
+        </member>
+        <member name="P:CsvUploader.Pages.Internal.UploadModel.UploadFileName">
+            <summary>
+            The list of file names to upload.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.UploadModel.OnGet">
+            <summary>  
+            On Get method.  
+            </summary>  
+        </member>
+        <member name="M:CsvUploader.Pages.Internal.UploadModel.OnPostUpload(System.Collections.Generic.IEnumerable{Microsoft.AspNetCore.Http.IFormFile})">
+            <summary>  
+            POST: /Internal/Upload/Upload  
+            </summary>  
+            <returns>Return upload action</returns>
+        </member>
+        <member name="T:CsvUploader.Program">
+            <summary>
+            The application start class.
+            </summary>
+        </member>
+        <member name="M:CsvUploader.Program.Main(System.String[])">
+            <summary>  
+            The main function of application  
+            </summary>  
+        </member>
+        <member name="T:CsvUploader.Startup">
+            <summary>
+            The startup class of application.
+            </summary>
+        </member>
+        <member name="P:CsvUploader.Startup.Configuration">
+            <summary>
+            The startup configuration.
+            </summary>
+        </member>
+        <member name="M:CsvUploader.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>  
+            Initializes a new instance of the <see cref="T:CsvUploader.Startup"/> class.  
+            </summary>  
+            <param name="configuration">The startup configuration.</param>
+        </member>
+        <member name="M:CsvUploader.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+             This method is used to add services to the container.
+            </summary>
+            <param name="services">The services collection.</param>
+        </member>
+        <member name="M:CsvUploader.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="applicationBuilder">The application builder.</param>
+            <param name="environment">The hosting environment.</param>
+        </member>
+        <member name="T:CsvUploader.Utility.FileNameFormatter">
+            <summary>
+            helper class to format/reformat uploaded filenames.
+            </summary>
+        </member>
+        <member name="M:CsvUploader.Utility.FileNameFormatter.FormatWithTimeStamp(System.String)">
+            <summary>
+            Delivers formatted file name with timestamp included.
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CsvUploader.Utility.FileNameFormatter.ReFormatFromTimeStamp(System.String)">
+            <summary>
+            Delivers reformatted file name from name with timestamp.
+            </summary>
+            <param name="fileNameWithTimeStamp"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

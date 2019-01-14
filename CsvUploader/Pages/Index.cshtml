@@ -1,0 +1,45 @@
+﻿@page "{handler?}"
+
+@model CsvUploader.Pages.IndexModel
+
+@{
+}
+
+<h4 style="color:red">@ViewBag.FeedBack</h4>
+
+<div class="row">
+    <div class="col-md-8">
+        <section>
+            <form method="post" role="form" class="form-horizontal">
+                @Html.AntiForgeryToken()
+
+                <h4>Sie müssen sich einloggen, um die Dateien hochladen zu können.</h4>
+                <hr />
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LoginModel.Username, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.LoginModel.Username, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.LoginModel.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LoginModel.Password, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.LoginModel.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.LoginModel.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button asp-page-handler="LogIn" class="btn btn-default">Log in</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>  

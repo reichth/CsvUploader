@@ -1,0 +1,53 @@
+﻿@page
+@model CsvUploader.Pages.Internal.ShowSupplierModel
+@{
+}
+
+<h4>@ViewBag.FeedBack</h4>
+
+<div class="row">
+    <div class="col-md-8">
+        <table class="table" border="1">
+            <thead>
+                <tr>
+                    <th>
+                        <a asp-page="ShowSupplier" asp-route-sortOrder="@Model.IdSort">
+                            Lieferantennummer
+                        </a>
+                    </th>
+                    <th>
+                        <a asp-page="ShowSupplier" asp-route-sortOrder="@Model.NameSort">
+                            Lieferantenname
+                        </a>
+                    </th>
+                    <th>
+                        Artikelanzahl
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Suppliers)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SupplierId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @if (item.ItemCount > 0)
+                            {
+                                <a asp-page="ShowItems" asp-route-supplierId="@item.SupplierId">@item.ItemCount Anzeigen</a>
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.ItemCount)
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
